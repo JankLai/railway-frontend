@@ -1,20 +1,18 @@
 <template>
-  <div class="about">
-    <h1>关于</h1>
+  <div class="analyze">
+    <h1>分析</h1>
   </div>
 </template>
 
 <script>
 export default {
-    name: "about"
+    name: "analyze"
 }
 </script>
 
 <style scoped>
-.about {
+.analyze {
     margin-top: 120px;
     height: 480px;
 }
 </style>
-
-

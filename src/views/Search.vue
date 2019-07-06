@@ -1,17 +1,17 @@
 <template>
-  <div class="about">
-    <h1>关于</h1>
+  <div class="search">
+    <h1>搜索</h1>
   </div>
 </template>
 
 <script>
 export default {
-    name: "about"
+    name: "search"
 }
 </script>
 
 <style scoped>
-.about {
+.search {
     margin-top: 120px;
     height: 480px;
 }
