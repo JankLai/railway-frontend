@@ -1,6 +1,19 @@
 <template>
         <div class="chart">     
-            <IEcharts class="echarts" :option="dataBar" :loading="loading"></IEcharts>                
+            
+            <IEcharts class="echarts" :option="dataBar" :loading="loading"></IEcharts>     
+            <b-button-group>
+                <b-button id='btn1' @click="changeChart('btn1')">时间</b-button>
+                <b-button id='btn2' @click="changeChart('btn2')">货物运输类别</b-button>
+                <b-button id='btn3' @click="changeChart('btn3')">货物运输品类</b-button>
+                <b-button id='btn4' @click="changeChart('btn4')">OD区域</b-button>
+            </b-button-group>
+            <!-- <div id="graph-nav">      
+                <router-link to="/date">时间</router-link>  |
+                <router-link to="/transport">货物运输类别</router-link>   |
+                <router-link to="/sort">货物运输品类</router-link>   |
+                <router-link to="/od">OD区域</router-link>   |  
+            </div>             -->
         </div>
 </template>
 
@@ -51,6 +64,26 @@ export default {
     components: {
         IEcharts
     },
+    methods: {
+        changeChart(id) {
+            switch (id) {
+                case 'btn1':  //时间
+                    
+                    break;
+                case 'btn2':  //货物运输类别
+                    
+                    break;
+                case 'btn3':  //货物运输品类
+                    
+                    break;
+                case 'btn4':  //OD区域
+                    
+                    break;        
+                default:
+                    break;
+            }
+        }
+    },
 }
  
 </script>
@@ -65,5 +98,28 @@ export default {
     height: 400px;
     margin-top: 120px;
     text-align: center;
+}
+.chart a {
+  color: rgb(22, 46, 155);
+  padding-right: 5px;
+  text-decoration: none;
+}
+#graph-nav a.router-link-exact-active {
+  color: rgb(182, 17, 66);
+  font-size: 20px;
+  font-weight: bold
+}
+
+.btn {
+    background-color: rgb(87, 148, 218);
+    color: black;
+    margin-left: 10px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+  
+}
+#btn4 {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 </style>

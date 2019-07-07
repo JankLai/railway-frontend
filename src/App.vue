@@ -31,9 +31,6 @@ export default {
   color: #2c3e50;
   background: linear-gradient(rgb(80, 170, 250),#fff)
 }
-
-
-
 #nav a.router-link-exact-active {
   color: darkred;
   font-size: 20px;
