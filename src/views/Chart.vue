@@ -1,19 +1,12 @@
 <template>
-        <div class="chart">     
-            
-            <IEcharts class="echarts" :option="dataBar" :loading="loading"></IEcharts>     
+        <div class="chart">               
+            <IEcharts class="echarts" :option="dataBar" :loading="loading"></IEcharts>    
             <b-button-group>
                 <b-button id='btn1' @click="changeChart('btn1')">时间</b-button>
                 <b-button id='btn2' @click="changeChart('btn2')">货物运输类别</b-button>
                 <b-button id='btn3' @click="changeChart('btn3')">货物运输品类</b-button>
                 <b-button id='btn4' @click="changeChart('btn4')">OD区域</b-button>
             </b-button-group>
-            <!-- <div id="graph-nav">      
-                <router-link to="/date">时间</router-link>  |
-                <router-link to="/transport">货物运输类别</router-link>   |
-                <router-link to="/sort">货物运输品类</router-link>   |
-                <router-link to="/od">OD区域</router-link>   |  
-            </div>             -->
         </div>
 </template>
 
@@ -27,17 +20,29 @@ export default {
     name: 'chart',
     data () {
         return {
-            loading: false, //初始化为true,待actions获取完success后改为true
+            loading: false, //初始化为true,待actions获取完success后改为false
             dataBar: {} //日期  ===>尝试用 Large Scale Bar Chart
         }
     },
     computed: {
         ...mapState([
             "data",
-            "values"
+            "values",
+            "dateAmountX",
+            "dateAmountY",
+            "transportAmountX",
+            "transportAmountY",
+            "goodsAmountX",
+            "goodsAmountY",
+            "odAmountX",
+            "odAmountY",
         ])
     },
     mounted() {
+        this.getDateAmount()
+        this.getTransportAmount()
+        this.getGoodsAmount()
+        this.getOdAmount()
         this.dataBar = {
                 title: {
                     text: '柱状图'
@@ -50,7 +55,8 @@ export default {
                 series: [{
                     name: '货运量',
                     type: 'bar',
-                    data: this.values
+                    data: this.values,
+                    large : true
                 }],
                 dataZoom:{
                     realtime:true, //拖动滚动条时是否动态更新图表数据
@@ -65,19 +71,30 @@ export default {
         IEcharts
     },
     methods: {
+        ...mapActions([
+            'getDateAmount',
+            'getTransportAmount',
+            'getGoodsAmount',
+            'getOdAmount',
+        ]),
         changeChart(id) {
             switch (id) {
                 case 'btn1':  //时间
-                    
+                    this.dataBar.xAxis.data = this.dateAmountX
+                    this.dataBar.yAxis.data = this.dateAmountY
                     break;
-                case 'btn2':  //货物运输类别
+                case 'btn2':  //货物运输类别            
+                    this.dataBar.xAxis.data = this.transportAmountX
+                    this.dataBar.yAxis.data = this.transportAmountY
                     
                     break;
                 case 'btn3':  //货物运输品类
-                    
+                    this.dataBar.xAxis.data = this.goodsAmountX
+                    this.dataBar.yAxis.data = this.goodsAmountY
                     break;
                 case 'btn4':  //OD区域
-                    
+                    this.dataBar.xAxis.data = this.odAmountX
+                    this.dataBar.yAxis.data = this.odAmountY
                     break;        
                 default:
                     break;

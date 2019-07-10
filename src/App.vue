@@ -2,7 +2,9 @@
   <div id="app">
     <Header />
       <b-container>
-         <router-view/>
+        <vue-page-transition name="zoom">
+          <router-view />
+        </vue-page-transition>       
       </b-container>  
     <Footer />
   </div>
@@ -11,6 +13,7 @@
 <script>
 import Header from './components/Header';
 import Footer from './components/Footer';
+
 
 export default {
   name:"app",
@@ -34,6 +37,7 @@ export default {
 #nav a.router-link-exact-active {
   color: darkred;
   font-size: 20px;
-  font-weight: bold
+  font-weight: bold;
+  transition: 0.6s ease-in;
 }
 </style>

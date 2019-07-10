@@ -13,6 +13,8 @@ import fontawesome from '@fortawesome/fontawesome'
 
 import solid from '@fortawesome/fontawesome-free-solid'
 
+import VuePageTransition from 'vue-page-transition'
+
 fontawesome.library.add(solid)
 
 
@@ -20,7 +22,7 @@ fontawesome.library.add(solid)
 //cnpm i vue bootstrap-vue bootstrap
 //cnpm install node-sass@4.12.0
 
-Vue.use(BootstrapVue)
+Vue.use(BootstrapVue, VuePageTransition)
 
 Vue.config.productionTip = false
 

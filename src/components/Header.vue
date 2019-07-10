@@ -5,6 +5,7 @@
       <div id="nav">      
         <router-link to="/charts"><i class="fas fa-chart-line"></i>图表</router-link>   |
         <router-link to="/search"><i class="fas fa-search"></i>搜索</router-link>   |
+        <router-link to="/upload">📂</router-link>   |
         <router-link to="/analyze"><i class="fas fa-pencil-alt"></i>分析</router-link>   |
         <router-link to="/about"><i class="fas fa-map-marker"></i>关于</router-link>   |  
       </div> 

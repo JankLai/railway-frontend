@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Chart from './views/Chart.vue'
 import Search from './views/Search.vue'
+import Upload from './views/Upload.vue'
 import Analyze from './views/Analyze.vue'
 import About from './views/About.vue'
 
@@ -19,12 +20,18 @@ export default new Router({
     {
       path: '/charts',
       name: 'charts',
-      component: Chart
+      component: Chart,
+      meta: { transition: 'zoom' },
     },
     {
       path: '/search',
       name: 'search',
       component: Search
+    },
+    {
+      path: '/upload',
+      name: 'upload',
+      component: Upload
     },
     {
       path: '/analyze',

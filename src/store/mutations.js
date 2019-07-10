@@ -43,9 +43,34 @@ export default {
             Object.assign(item2, payload);
         }
         
-    }
+    },
     // appendPet: (state, {species, pet}) => {
     //     //accept actions'axios and assign value to state
     //     state[species].push(pet);
     // }
+    SET_DATE_AMOUNT: (state, {dateAmount}) => {
+        for(var i = 0; i<dateAmount.length; i++) {
+            state.dateAmountX = [...state.dateAmountX, dateAmount[i]['date']];
+            state.dateAmountY = [...state.dateAmountY, dateAmount[i]['amount']];
+        }  
+    },
+    SET_TRANSPORT_AMOUNT: (state, {transportAmount}) => {
+        for(var i = 0; i<transportAmount.length; i++) {
+            state.transportAmountX = [...state.transportAmountX, transportAmount[i]['transport']];
+            state.transportAmountY = [...state.transportAmountY, transportAmount[i]['amount']];
+        }  
+        // state.transportAmount = transportAmount;
+    },
+    SET_GOODS_AMOUNT:(state, {goodsAmount}) => {
+        for(var i = 0; i<goodsAmount.length; i++) {
+            state.goodsAmountX = [...state.goodsAmountX, goodsAmount[i]['goods']];
+            state.goodsAmountY = [...state.goodsAmountY, goodsAmount[i]['amount']];
+        } 
+    },
+    SET_OD_AMOUNT:(state, {odAmount}) => {
+        for(var i = 0; i<odAmount.length; i++) {
+            state.odAmountX = [...state.odAmountX, odAmount[i]['od']];
+            state.odAmountY = [...state.odAmountY, odAmount[i]['amount']];
+        } 
+    },
 }
