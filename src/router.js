@@ -21,7 +21,6 @@ export default new Router({
       path: '/charts',
       name: 'charts',
       component: Chart,
-      meta: { transition: 'zoom' },
     },
     {
       path: '/search',

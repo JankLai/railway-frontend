@@ -2,9 +2,7 @@
   <div id="app">
     <Header />
       <b-container>
-        <vue-page-transition name="zoom">
-          <router-view />
-        </vue-page-transition>       
+        <router-view />    
       </b-container>  
     <Footer />
   </div>
