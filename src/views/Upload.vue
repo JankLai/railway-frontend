@@ -1,6 +1,6 @@
 <template>
   <div class="upload">
-    <h1>上传统计数据</h1>
+    <!-- <h1>上传统计数据</h1> -->
     <div class="file-view">
       <b-form @submit.prevent="uploadDateAmount">
         <b-form-file
@@ -9,7 +9,7 @@
           placeholder="选取日期-货运量统计文件..."
           drop-placeholder="Drop file here..."
         ></b-form-file>
-        <b-button type="submit" variant="primary">Submit</b-button>
+        <b-button type="submit" variant="primary">上传</b-button>
       </b-form>
 
 
@@ -20,7 +20,7 @@
           placeholder="选取货运方式-货运量统计文件..."
           drop-placeholder="Drop file here..."
         ></b-form-file>
-        <b-button type="submit" variant="primary">Submit</b-button>
+        <b-button type="submit" variant="primary">上传</b-button>
       </b-form>
 
 
@@ -31,7 +31,7 @@
           placeholder="选取货运品类-货运量统计文件"
           drop-placeholder="Drop file here..."
         ></b-form-file>
-        <b-button type="submit" variant="primary">Submit</b-button>
+        <b-button type="submit" variant="primary">上传</b-button>
       </b-form>
 
 
@@ -42,7 +42,7 @@
           placeholder="选取OD区域-货运量统计文件..."
           drop-placeholder="Drop file here..."
         ></b-form-file>
-        <b-button type="submit" variant="primary">Submit</b-button>
+        <b-button type="submit" variant="primary">上传</b-button>
       </b-form>   
     </div>
     
@@ -61,56 +61,119 @@ export default {
         odAmountFile : null
       }
     },
+    mounted() {
+      this.setFooterText("管理员上传统计文件")
+    },
     methods: {
         ...mapActions([
             'uploadDateAmountFile',
             'uploadTransportAmountFile',
             'uploadGoodsAmountFile',
             'uploadOdAmountFile',
+            'setFooterText'
         ]),
         uploadDateAmount(){
-          alert("d")
-          if(this.dateAmountFile){
-            alert("dd3")
+          if(sessionStorage.getItem("role") !== "admin"){
+            this.$bvModal.msgBoxOk('只有管理员才能上传统计文件', {
+              title: '',
+              size: 'sm',
+              buttonSize: 'xl',
+              okVariant: 'success',
+              headerClass: 'p-2 border-bottom-0',
+              footerClass: 'p-2 border-top-0',
+              centered: true
+            })
+            .then(value => {                    
+            })
+            .catch(err => {
+            }) 
+          }
+          else if(this.dateAmountFile){
             this.uploadDateAmountFile(this.dateAmountFile);
+            
           }
         },
         uploadTransportAmount(){
-          if(!this.transportAmountFile == null && !this.transportAmountFile =='undefined'){
+          if(sessionStorage.getItem("role") !== "admin"){
+            this.$bvModal.msgBoxOk('只有管理员才能上传统计文件', {
+              title: '',
+              size: 'sm',
+              buttonSize: 'xl',
+              okVariant: 'success',
+              headerClass: 'p-2 border-bottom-0',
+              footerClass: 'p-2 border-top-0',
+              centered: true
+            })
+            .then(value => {                    
+            })
+            .catch(err => {
+            }) 
+          }
+          else if(this.transportAmountFile){
             this.uploadTransportAmountFile(this.transportAmountFile);
           }
         },
         uploadGoodsAmount(){
-          if(!this.goodsAmountFile == null && !this.goodsAmountFile =='undefined'){
+          if(sessionStorage.getItem("role") !== "admin"){
+            this.$bvModal.msgBoxOk('只有管理员才能上传统计文件', {
+              title: '',
+              size: 'sm',
+              buttonSize: 'xl',
+              okVariant: 'success',
+              headerClass: 'p-2 border-bottom-0',
+              footerClass: 'p-2 border-top-0',
+              centered: true
+            })
+            .then(value => {                    
+            })
+            .catch(err => {
+            }) 
+          }
+          else if(this.goodsAmountFile){
             this.uploadGoodsAmountFile(this.goodsAmountFile);
           }
         },
         uploadOdAmount(){
-          if(!this.odAmountFile == null && !this.odAmountFile =='undefined'){
+          if(sessionStorage.getItem("role") !== "admin"){
+            this.$bvModal.msgBoxOk('只有管理员才能上传统计文件', {
+              title: '',
+              size: 'sm',
+              buttonSize: 'xl',
+              okVariant: 'success',
+              headerClass: 'p-2 border-bottom-0',
+              footerClass: 'p-2 border-top-0',
+              centered: true
+            })
+            .then(value => {                    
+            })
+            .catch(err => {
+            }) 
+          }
+          else if(this.odAmountFile){
             this.uploadOdAmountFile(this.odAmountFile);
           }
         },
-        changeChart(id) {
-          
-        }
+        
     },
 }
 </script>
 
 <style scoped>
 .upload {
-    margin-top: 120px;
-   
+    margin-top: 10.7%;
     height: 480px;
     z-index: 999;
 }
 .file-view {
-    margin-top: 60px;
-    margin-left: 25%;
-    margin-right: 25%;
+    padding-top: 70px;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 .custom-file-input:lang(en) ~ .custom-file-label::after {
   content: 'f';
+}
+.btn {
+  margin : 6px 0px;
 }
 </style>
 

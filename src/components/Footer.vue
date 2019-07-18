@@ -1,17 +1,18 @@
 <template>
   <footer class="footer">
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-    </ul>
-    
+    <marquee width=800 scrollamount=4>🚝🚃🚃{{footer_text}}🚃🚃</marquee>
   </footer>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: 'Footer',
+  computed: {
+    ...mapState([
+      'footer_text'
+    ])
+  },
   
 }
 </script>
@@ -28,39 +29,10 @@ export default {
     right: 0;
     color: #fdfdfd;
 }
-.footer a {
+.footer p {
+  margin : 0%;
+  padding: 1px;
   color: #42b983;
 }
 
-ul {
-  list-style: none;
-  margin: 0
-}
-li {
-  padding: 0 20px;
-  display: inline-block;
-  
-}
-
-
-  /* .header {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1.8% 0;
-    margin-bottom: 0;
-    position: fixed;
-    top: 0;
-    height: 110px;
-    z-index: 1;
-    width: 100%;
-    color: #fdfdfd;
-    
-  }
-
-  .header a {
-    color: #fff;
-    padding-right: 5px;
-    text-decoration: none;
-  } */
 </style>

@@ -4,7 +4,8 @@ import Chart from './views/Chart.vue'
 import Search from './views/Search.vue'
 import Upload from './views/Upload.vue'
 import Analyze from './views/Analyze.vue'
-import About from './views/About.vue'
+import Map from './views/Map.vue'
+import Login from './views/Login.vue'
 
 Vue.use(Router)
 
@@ -14,8 +15,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Chart
+      redirect: '/login',
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
     {
       path: '/charts',
@@ -38,12 +43,12 @@ export default new Router({
       component: Analyze
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/map',
+      name: 'map',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: About
+      component: Map
     }
   ]
 })
