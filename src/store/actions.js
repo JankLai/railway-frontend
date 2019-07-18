@@ -61,7 +61,6 @@ export default {
           date.getDate()
           dateAmount[i]['date'] = dateString;       
         }
-        console.log(data.data)
         commit("SET_DATE_AMOUNT", { dateAmount });
       })
       .catch(error => {
@@ -457,6 +456,34 @@ export default {
   setFooterText: ({ commit }, text) => {
     commit("SET_FOOTER_TEXT", {text})
   },
+
+  //获取地图数据
+  getData : ({commit}) => {
+    axios.
+      get("/search/odAmount")
+      .then(data => {
+        // console.log(data.data)
+        let odAmount = data.data;
+        commit("SET_DATA", { odAmount });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },
+
+  getGeoCoordMap : ({commit}) => {
+    axios.
+      get("/search/odLocation")
+      .then(data => {
+        // console.log(datSET_GEOCOORDMAPa.data)
+        let odLocation = data.data;
+        commit("SET_GEOCOORDMAP", { odLocation });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
 
 
 };

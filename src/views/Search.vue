@@ -307,7 +307,7 @@ export default {
     color: black
 }
 #form {
-    margin-top: 10.7%;;
+    margin-top: 120px;;
     margin-left: 250px; 
 }
 #table {

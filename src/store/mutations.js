@@ -73,5 +73,11 @@ export default {
     },
     SET_FOOTER_TEXT :(state , {text}) => {
         state.footer_text = text
+    },
+    SET_DATA :(state, {odAmount}) => {
+        state.data = odAmount;
+    },
+    SET_GEOCOORDMAP :(state, {odLocation}) => {
+        state.geoCoordMap = odLocation
     }
 }

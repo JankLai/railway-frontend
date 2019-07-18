@@ -22,8 +22,10 @@ export default {
     //底部导航栏文字
     footer_text : "铁路大数据分析系统",
 
-    role : '(未登录)'
+    role : '(未登录)',
 
+    data : [],
 
-    
+    geoCoordMap : {}
+
 }

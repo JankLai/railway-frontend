@@ -160,7 +160,7 @@ export default {
 
 <style scoped>
 .upload {
-    margin-top: 10.7%;
+    margin-top: 120px;
     height: 480px;
     z-index: 999;
 }

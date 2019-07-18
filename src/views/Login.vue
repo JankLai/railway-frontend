@@ -103,13 +103,15 @@ export default {
     margin-left: 20%;
     margin-right: 20%;
 
-    height: 480px;
+    height: 100%;
     
   }
   .login-btn {
     background-color: whitesmoke;
+    font-size: 50px;
   }
   .logo {
+    margin-top: 120px;
     font-family: "DejaVu Sans Mono";
     color: lightblue;
     font-size: 60px;

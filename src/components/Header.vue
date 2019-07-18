@@ -36,10 +36,10 @@ export default {
   },
   mounted() {
     if(sessionStorage.getItem("role") == "admin"){
-      this.role = "管理员"
+      this.setRole('管理员')
     }
     else if(sessionStorage.getItem("role") == "user"){
-      this.role = "普通用户"
+      this.setRole("普通用户") 
     }
   },
   methods: {
@@ -61,7 +61,9 @@ export default {
 
 .wrap {
   background: linear-gradient(#1F4A99 ,#fff) ;
-  height: 19%;
+  /* background-size: 100%; */
+  background-repeat: repeat-y;
+  height: 120px;
   color: antiquewhite;
   text-align: center;
   margin-bottom: 0;

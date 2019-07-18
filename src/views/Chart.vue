@@ -298,6 +298,7 @@ export default {
     },
     mounted() {
 
+
         this.setFooterText("点击按钮查看对应报表")
 
         //初始时取数据
